@@ -51,7 +51,7 @@ const config = {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        locale: '[es-ES,es;q=0.9,en-US;q=0.8,en;q=0.7',
+        locale: 'es-ES,es;q=0.9,en-US;q=0.8,en;q=0.7',
         timezoneId: 'Europe/Madrid'
       },
     },
