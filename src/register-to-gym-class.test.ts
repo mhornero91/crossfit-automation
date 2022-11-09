@@ -31,7 +31,4 @@ test('register in gym class', async ({ page }) => {
   await page.getByRole('button', { name: 'Reservar clase' }).click();
 
   await page.getByText('Clase reservada con éxito.').click();
-
-  await sleep(10000)
-
 });

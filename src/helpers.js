@@ -1,6 +1,21 @@
 import * as dotenv from 'dotenv'
 dotenv.config()
 
+function validateEnvironmentsVars(environmentVars) {
+  for (const environmentVar of environmentVars) {
+    if (!process.env[environmentVar]) {
+      throw new Error(`You have to set the environment variable '${environmentVar}'`)
+    }
+  }
+}
+
+validateEnvironmentsVars([
+  'PASS',
+  'USER',
+  'GYM_CLASS_ID',
+  'GYM_PROGRAM_ID',
+])
+
 export const CONFIG = {
   username: String(process.env.USER),
   password: String(process.env.PASS),
