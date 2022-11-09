@@ -45,4 +45,4 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v3
         with:
-          path: test-results/
+          path: test-results
