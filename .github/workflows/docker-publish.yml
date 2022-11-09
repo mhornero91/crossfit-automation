@@ -8,6 +8,12 @@ name: Docker
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - ./src/**
+      - ./package*.json
+      - .dockerignore
+      - Dockerfile
+      - playwright.config.js
 
 env:
   # Use docker.io for Docker Hub if empty
