@@ -13,32 +13,37 @@ test('register in gym class', async ({ page, context }) => {
       }
     })
   })
+  try {
+    // Login
+    await page.goto('https://crosshero.com/athletes/sign_in');
 
-  // Login
-  await page.goto('https://crosshero.com/athletes/sign_in');
+    await page.getByLabel('Email').click();
 
-  await page.getByLabel('Email').click();
+    await page.getByLabel('Email').fill(CONFIG.username);
 
-  await page.getByLabel('Email').fill(CONFIG.username);
+    await page.getByLabel('Contraseña').click();
 
-  await page.getByLabel('Contraseña').click();
+    await page.getByLabel('Contraseña').fill(CONFIG.password);
 
-  await page.getByLabel('Contraseña').fill(CONFIG.password);
+    await page.getByLabel('Contraseña').press('Enter');
 
-  await page.getByLabel('Contraseña').press('Enter');
+    // Select classes
+    await expect(page).toHaveURL('https://crosshero.com/dashboard/classes');
 
-  // Select classes
-  await expect(page).toHaveURL('https://crosshero.com/dashboard/classes');
+    await page.goto('https://crosshero.com/dashboard/classes');
 
-  await page.goto('https://crosshero.com/dashboard/classes');
+    await page.goto(generateClassesUrl({baseClasesUrl: CONFIG.baseClasesUrl, daysToAdd: CONFIG.daysToAdd, gymProgramId: CONFIG.gymProgramId}));
 
-  await page.goto(generateClassesUrl({baseClasesUrl: CONFIG.baseClasesUrl, daysToAdd: CONFIG.daysToAdd, gymProgramId: CONFIG.gymProgramId}));
+    await page.getByRole('combobox', { name: 'Seleccione un horario' }).locator('span').nth(2).click();
 
-  await page.getByRole('combobox', { name: 'Seleccione un horario' }).locator('span').nth(2).click();
+    await page.getByRole('treeitem', { name: CONFIG.gymClassId }).click();
 
-  await page.getByRole('treeitem', { name: CONFIG.gymClassId }).click();
+    await page.getByRole('button', { name: 'Reservar clase' }).click();
 
-  await page.getByRole('button', { name: 'Reservar clase' }).click();
+    await page.getByText('Clase reservada con éxito.').click();
 
-  await page.getByText('Clase reservada con éxito.').click();
+  } catch (e) {
+    await page.screenshot({ path: 'screenshot.png', fullPage: true });
+    throw e
+  }
 });

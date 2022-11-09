@@ -6,14 +6,15 @@ name: Docker
 # documentation.
 
 on:
-  push:
-    branches: [ "main" ]
-    paths:
-      - src/**
-      - package*.json
-      - .dockerignore
-      - Dockerfile
-      - playwright.config.js
+  # TODO: enable push
+  # push:
+  #   branches: [ "main" ]
+  #   paths:
+  #     - src/**
+  #     - package*.json
+  #     - .dockerignore
+  #     - Dockerfile
+  #     - playwright.config.js
   workflow_dispatch:
 
 env:

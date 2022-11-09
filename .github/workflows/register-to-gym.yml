@@ -41,3 +41,7 @@ jobs:
           GYM_PROGRAM_ID: 582c3718697e160007a02331
           GYM_CLASS_ID: 14:00 Sala 2
           DAYS_TO_ADD: "1"
+      - name: updload png
+        uses: actions/upload-artifact@v3
+        with:
+          path: test-results/
