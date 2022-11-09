@@ -21,7 +21,7 @@ test('register in gym class', async ({ page, context }) => {
 
   await page.getByLabel('Email').fill(CONFIG.username);
 
-  await page.screenshot({ path: 'screenshot-contraseña.png', fullPage: true });
+  await page.screenshot({ path: 'test-results/screenshot-contraseña.png', fullPage: true });
 
   await page.getByLabel('Contraseña').click();
 
