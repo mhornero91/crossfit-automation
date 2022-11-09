@@ -21,13 +21,13 @@ test('register in gym class', async ({ page, context }) => {
 
   await page.getByLabel('Email').fill(CONFIG.username);
 
-  await page.screenshot({ path: 'test-results/screenshot-contraseña.png', fullPage: true });
+  await page.screenshot({ path: 'test-results/screenshot-password.png', fullPage: true });
 
-  await page.getByLabel('Contraseña').click();
+  await page.getByLabel('Password').click();
 
-  await page.getByLabel('Contraseña').fill(CONFIG.password);
+  await page.getByLabel('Password').fill(CONFIG.password);
 
-  await page.getByLabel('Contraseña').press('Enter');
+  await page.getByLabel('Password').press('Enter');
 
   // Select classes
   await expect(page).toHaveURL('https://crosshero.com/dashboard/classes');
@@ -36,12 +36,12 @@ test('register in gym class', async ({ page, context }) => {
 
   await page.goto(generateClassesUrl({baseClasesUrl: CONFIG.baseClasesUrl, daysToAdd: CONFIG.daysToAdd, gymProgramId: CONFIG.gymProgramId}));
 
-  await page.getByRole('combobox', { name: 'Seleccione un horario' }).locator('span').nth(2).click();
+  await page.getByRole('combobox', { name: 'Select a class' }).locator('span').nth(2).click();
 
   await page.getByRole('treeitem', { name: CONFIG.gymClassId }).click();
 
-  await page.getByRole('button', { name: 'Reservar clase' }).click();
+  await page.getByRole('button', { name: 'Book this class' }).click();
 
-  await page.getByText('Clase reservada con éxito.').click();
+  await page.getByText('Class successfully reserved.').click();
 
 });
