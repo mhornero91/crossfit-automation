@@ -42,6 +42,7 @@ jobs:
           GYM_CLASS_ID: 14:00 Sala 2
           DAYS_TO_ADD: "1"
       - name: updload png
+        if: failure()
         uses: actions/upload-artifact@v3
         with:
           path: test-results/
