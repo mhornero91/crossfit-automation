@@ -12,7 +12,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Run script register to class
-        run: docker run ghcr.io/mhornero91/crossfit-automation:main
+        # If the env has not value, docker get it from the host: https://vsupalov.com/docker-environment-variables-from-host/#passing-environment-variable-values
+        run: |
+          docker run \
+            -e USER \
+            -e PASS \
+            -e GYM_PROGRAM_ID \
+            -e GYM_CLASS_ID \
+            -e DAYS_TO_ADD \
+          ghcr.io/mhornero91/crossfit-automation:main
         env:
           USER: ${{ secrets.USER }}
           PASS: ${{ secrets.PASS }}
