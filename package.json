@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/register-to-gym-class.test.ts",
   "scripts": {
-    "start": "npm playwright test"
+    "start": "npx playwright test"
   },
   "keywords": [],
   "author": "",

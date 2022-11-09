@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Register to class
-        uses: ./actions/register-to-gym-class
+      - name: Run script register to class
+        run: docker run ghcr.io/mhornero91/crossfit-automation:main
         env:
           USER: ${{ secrets.USER }}
           PASS: ${{ secrets.PASS }}
