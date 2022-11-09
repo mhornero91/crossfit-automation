@@ -9,11 +9,12 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - ./src/**
-      - ./package*.json
+      - src/**
+      - package*.json
       - .dockerignore
       - Dockerfile
       - playwright.config.js
+  workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty
