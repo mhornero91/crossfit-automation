@@ -4,5 +4,5 @@ ENV CI=1
 WORKDIR /app
 
 COPY . /app
-RUN npm install
+RUN npm install && npx playwright install chromium
 CMD npm start

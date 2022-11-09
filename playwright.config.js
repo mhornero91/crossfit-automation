@@ -51,7 +51,7 @@ const config = {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        locale: 'es-ES',
+        locale: '[es-ES,es;q=0.9,en-US;q=0.8,en;q=0.7',
         timezoneId: 'Europe/Madrid'
       },
     },
@@ -100,7 +100,7 @@ const config = {
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  // outputDir: 'test-results/',
+  outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
   // webServer: {
