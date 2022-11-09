@@ -1,0 +1,21 @@
+name: Register to gym class
+
+on:
+  workflow_dispatch:
+
+jobs:
+  register-hornero:
+    runs-on: ubuntu-latest
+    environment: hornero
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Register to class
+        uses: ./actions/register-to-gym-class
+        env:
+          USER: ${{ secrets.USER }}
+          PASS: ${{ secrets.PASS }}
+          GYM_PROGRAM_ID: 582c3718697e160007a02331
+          GYM_CLASS_ID: 14:00 Sala 2
+          DAYS_TO_ADD: "1"
