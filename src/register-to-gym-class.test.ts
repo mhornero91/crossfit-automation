@@ -2,7 +2,17 @@ import { test, expect } from '@playwright/test';
 import { CONFIG, sleep, generateClassesUrl } from './helpers.js'
 
 
-test('register in gym class', async ({ page }) => {
+test('register in gym class', async ({ page, context }) => {
+
+  // -- modify the request to set the language preference
+  await context.route('**/*', (route, request) => {
+    route.continue({
+      headers: {
+        ...request.headers(),
+        'accept-language': 'es-ES,es;q=0.9,en-US;q=0.8,en;q=0.7',
+      }
+    })
+  })
 
   // Login
   await page.goto('https://crosshero.com/athletes/sign_in');
