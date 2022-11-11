@@ -3,14 +3,15 @@
   "version": "0.0.1",
   "description": "",
   "main": "src/register-to-gym-class.test.ts",
+  "type": "module",
   "scripts": {
-    "start": "npx playwright test"
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@playwright/test": "^1.27.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "playwright": "^1.27.1"
   }
 }
