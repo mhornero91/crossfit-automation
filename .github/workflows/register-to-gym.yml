@@ -2,8 +2,6 @@ name: Register to gym class
 
 on:
   workflow_dispatch:
-  # TODO: remove push
-  push:
 
 jobs:
   register-hornero:
@@ -21,14 +19,14 @@ jobs:
       #       -e USER \
       #       -e PASS \
       #       -e GYM_PROGRAM_ID \
-      #       -e GYM_CLASS_ID \
+      #       -e GYM_CLASS_SELECTOR \
       #       -e DAYS_TO_ADD \
       #     ghcr.io/mhornero91/crossfit-automation:main
       #   env:
       #     USER: ${{ secrets.USER }}
       #     PASS: ${{ secrets.PASS }}
       #     GYM_PROGRAM_ID: 582c3718697e160007a02331
-      #     GYM_CLASS_ID: 14:00 Sala 2
+      #     GYM_CLASS_SELECTOR: 14:00 Sala 2
       #     DAYS_TO_ADD: "1"
       - name: Run script register to class
         # If the env has not value, docker get it from the host: https://vsupalov.com/docker-environment-variables-from-host/#passing-environment-variable-values
@@ -39,10 +37,6 @@ jobs:
           USER: ${{ secrets.USER }}
           PASS: ${{ secrets.PASS }}
           GYM_PROGRAM_ID: 582c3718697e160007a02331
-          GYM_CLASS_ID: 14:00 Sala 2
-          DAYS_TO_ADD: "1"
-      - name: updload png
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          path: test-results
+          GYM_CLASS_SELECTOR: 16:00
+          DAYS_TO_ADD: 6
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
