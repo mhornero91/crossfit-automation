@@ -12,8 +12,9 @@ function validateEnvironmentsVars(environmentVars) {
 validateEnvironmentsVars([
   'PASS',
   'USER',
-  'GYM_CLASS_SELECTOR',
   'GYM_PROGRAM_ID',
+  'GYM_CLASS_SELECTOR',
+  'TELEGRAM_TOKEN'
 ])
 
 export const CONFIG = {
