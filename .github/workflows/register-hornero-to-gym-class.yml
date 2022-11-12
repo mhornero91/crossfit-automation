@@ -2,8 +2,6 @@ name: Register Hornero to gym class
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '15 * * * *'
 
 jobs:
   register-hornero:
