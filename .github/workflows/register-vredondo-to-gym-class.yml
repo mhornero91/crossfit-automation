@@ -26,6 +26,6 @@ jobs:
           USER: ${{ secrets.USER }}
           PASS: ${{ secrets.PASS }}
           GYM_PROGRAM_ID: 6144c6be846d6b0031ae08ff
-          GYM_CLASS_SELECTOR: 20:00
-          DAYS_TO_ADD: 7
+          GYM_CLASS_SELECTOR: 11:00
+          DAYS_TO_ADD: 5
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
