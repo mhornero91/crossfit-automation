@@ -14,7 +14,7 @@ jobs:
       - name: Run script register to class
         # If the env has not value, docker get it from the host: https://vsupalov.com/docker-environment-variables-from-host/#passing-environment-variable-values
         run: |
-          sleep 45s
+          sleep 40s
           docker run \
             -e USER \
             -e PASS \
