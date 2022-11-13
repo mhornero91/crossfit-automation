@@ -1,0 +1,32 @@
+name: Register vredondo to gym class
+
+on:
+  workflow_dispatch:
+
+jobs:
+  register-vredondo:
+    runs-on: ubuntu-latest
+    environment: vredondo
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Run script register to class
+        # If the env has not value, docker get it from the host: https://vsupalov.com/docker-environment-variables-from-host/#passing-environment-variable-values
+        run: |
+          sleep 20s
+          docker run \
+            -e USER \
+            -e PASS \
+            -e GYM_PROGRAM_ID \
+            -e GYM_CLASS_SELECTOR \
+            -e DAYS_TO_ADD \
+            -e TELEGRAM_TOKEN \
+          ghcr.io/mhornero91/crossfit-automation:main
+        env:
+          USER: ${{ secrets.USER }}
+          PASS: ${{ secrets.PASS }}
+          GYM_PROGRAM_ID: 6144c6be846d6b0031ae08ff
+          GYM_CLASS_SELECTOR: 20:00
+          DAYS_TO_ADD: 7
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
